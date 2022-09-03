@@ -88,7 +88,7 @@ public class UnitTest1
         var program = new Program();
 
         // Act
-        var leapYear = program.IsLeapYear(2022);
+        var leapYear = program.IsLeapYear(2024);
 
         // Assert
         Assert.Equal(false, leapYear);
