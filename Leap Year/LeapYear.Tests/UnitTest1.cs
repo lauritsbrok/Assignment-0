@@ -7,90 +7,90 @@ public class UnitTest1
     public void is4aLeapYear()
     {
         // Arrange
-        var program = new Program();
 
         // Act
-        var leapYear = program.IsLeapYear(4);
+        var leapYear = Program.IsLeapYear(4);
 
         // Assert
-        Assert.Equal(true, leapYear);
+        Assert.True(leapYear);
     }
 
     [Fact]
     public void is1700aLeapYear()
     {
         // Arrange
-        var program = new Program();
 
         // Act
-        var leapYear = program.IsLeapYear(1700);
+        var leapYear = Program.IsLeapYear(1700);
 
         // Assert
-        Assert.Equal(false, leapYear);
+        Assert.False(leapYear);
     }
 
     [Fact]  
     public void is1800aLeapYear()
     {
         // Arrange
-        var program = new Program();
 
         // Act
-        var leapYear = program.IsLeapYear(1800);
+        var leapYear = Program.IsLeapYear(1800);
 
         // Assert
-        Assert.Equal(false, leapYear);
+        Assert.False(leapYear);
     }
 
     [Fact]
     public void is1600aLeapYear()
     {
         // Arrange
-        var program = new Program();
 
         // Act
-        var leapYear = program.IsLeapYear(1600);
+        var leapYear = Program.IsLeapYear(1600);
 
         // Assert
-        Assert.Equal(true, leapYear);
+        Assert.True(leapYear);
     }
 
     [Fact]
     public void is2000aLeapYear()
     {
         // Arrange
-        var program = new Program();
 
         // Act
-        var leapYear = program.IsLeapYear(2000);
+        var leapYear = Program.IsLeapYear(2000);
 
         // Assert
-        Assert.Equal(true, leapYear);
+        Assert.True(leapYear);
     }
 
     [Fact]
     public void is1964aLeapYear()
     {
         // Arrange
-        var program = new Program();
 
         // Act
-        var leapYear = program.IsLeapYear(1964);
+        var leapYear = Program.IsLeapYear(1964);
 
         // Assert
-        Assert.Equal(true, leapYear);
+        Assert.True(leapYear);
     }
 
     [Fact]
     public void is2022aLeapYear()
     {
         // Arrange
-        var program = new Program();
 
         // Act
-        var leapYear = program.IsLeapYear(2024);
+        var leapYear = Program.IsLeapYear(2024);
 
         // Assert
-        Assert.Equal(false, leapYear);
+        Assert.True(leapYear);
+    }
+
+    [Fact]
+    public void isStringaLeapYear()
+    {
+        // Assert
+        Assert.Throws<FormatException>(() => Convert.ToInt32("sdsd"));
     }
 }
