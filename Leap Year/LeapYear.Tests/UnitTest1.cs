@@ -1,4 +1,5 @@
 namespace LeapYear.Tests;
+using MyApp;
 using System;
 
 public class UnitTest1
@@ -9,7 +10,7 @@ public class UnitTest1
         // Arrange
 
         // Act
-        var leapYear = Program.IsLeapYear(4);
+        var leapYear = LeapYear.IsLeapYear(4);
 
         // Assert
         Assert.True(leapYear);
@@ -21,7 +22,7 @@ public class UnitTest1
         // Arrange
 
         // Act
-        var leapYear = Program.IsLeapYear(1700);
+        var leapYear = LeapYear.IsLeapYear(1700);
 
         // Assert
         Assert.False(leapYear);
@@ -33,7 +34,7 @@ public class UnitTest1
         // Arrange
 
         // Act
-        var leapYear = Program.IsLeapYear(1800);
+        var leapYear = LeapYear.IsLeapYear(1800);
 
         // Assert
         Assert.False(leapYear);
@@ -45,7 +46,7 @@ public class UnitTest1
         // Arrange
 
         // Act
-        var leapYear = Program.IsLeapYear(1600);
+        var leapYear = LeapYear.IsLeapYear(1600);
 
         // Assert
         Assert.True(leapYear);
@@ -57,7 +58,7 @@ public class UnitTest1
         // Arrange
 
         // Act
-        var leapYear = Program.IsLeapYear(2000);
+        var leapYear = LeapYear.IsLeapYear(2000);
 
         // Assert
         Assert.True(leapYear);
@@ -69,7 +70,7 @@ public class UnitTest1
         // Arrange
 
         // Act
-        var leapYear = Program.IsLeapYear(1964);
+        var leapYear = LeapYear.IsLeapYear(1964);
 
         // Assert
         Assert.True(leapYear);
@@ -81,16 +82,51 @@ public class UnitTest1
         // Arrange
 
         // Act
-        var leapYear = Program.IsLeapYear(2024);
+        var leapYear = LeapYear.IsLeapYear(2024);
 
         // Assert
         Assert.True(leapYear);
     }
 
     [Fact]
-    public void isStringaLeapYear()
+    public void isStringaLeapYearYay()
     {
+        // Arrange
+        using var writer = new StringWriter();
+        Console.SetOut(writer);
+
+        LeapYear.PrintIsLeapYear("2004");
+
         // Assert
-        Assert.Throws<FormatException>(() => Convert.ToInt32("sdsd"));
+        var output = writer.GetStringBuilder().ToString().TrimEnd();
+        Assert.Equal("yay", output); 
+    }
+
+    [Fact]
+    public void isStringaLeapYearNay()
+    {
+        // Arrange
+        using var writer = new StringWriter();
+        Console.SetOut(writer);
+
+        LeapYear.PrintIsLeapYear("2005");
+
+        // Assert
+        var output = writer.GetStringBuilder().ToString().TrimEnd();
+        Assert.Equal("nay", output); 
+    }
+
+    [Fact]
+    public void isStringaLeapYearException()
+    {
+        // Arrange
+        using var writer = new StringWriter();
+        Console.SetOut(writer);
+
+        LeapYear.PrintIsLeapYear("hello");
+
+        // Assert
+        var output = writer.GetStringBuilder().ToString().TrimEnd();
+        Assert.Equal("You must enter a valid number!", output); 
     }
 }
